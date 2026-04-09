@@ -5,9 +5,9 @@ import { Inter, Barlow, Geist } from "next/font/google";
 // Global CSS
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from "next-themes";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
-
 
 // Fonts
 const interFont = Inter({ subsets: ["latin"] });
@@ -29,9 +29,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("h-full antialiased", "font-sans", geist.variable)}>
-      <body className={`${interFont.className} ${barlowFont.variable} min-h-full flex flex-col`}>
-        {children}
+    <html
+      lang="en"
+      className={cn("h-full antialiased", "font-sans", geist.variable)}
+    >
+      <body
+        className={`${interFont.className} ${barlowFont.variable} min-h-full flex flex-col`}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

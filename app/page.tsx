@@ -1,10 +1,13 @@
+
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 export default function Home() {
   return (
     <div>
-      <h1 className="">Welcome to the course</h1>
       <h1 className="font-barlow">Welcome to the course</h1>
+      <Button variant="destructive">Click Here</Button>
+    
     </div>
   );
 }
